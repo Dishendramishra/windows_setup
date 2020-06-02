@@ -1,11 +1,11 @@
 # Index
 
 1. [WSL](#WSL)
-   1. [Installing Windows Subsystem for Linux](#1.-Installing-Windows-Subsystem-for-Linux)
-   2. [Installing X11](#2.-Installing-X11)
-   3. [Setting Up Linux](#3.-Setting-Up-Linux)
-   4. [Optional](#4.-Optional-:warning:)
-2. [Installing Software on WSL](#Installing-Software-on-WSL)
+   1. [Installing Windows Subsystem for Linux](#1-installing-windows-subsystem-for-linux)
+   2. [Installing X11](#2-installing-x11)
+   3. [Setting Up Linux](#3.-setting-up-linux)
+   4. [Optional](#4.-optional-:warning:)
+2. [Installing Software on WSL](#installing-software-on-wsl)
 3. [Miscellaneous](#Miscellaneous)
 
 

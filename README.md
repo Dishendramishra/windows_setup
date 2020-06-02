@@ -5,7 +5,7 @@ Create shortcut of desired program in following location:
 %AppData%\Microsoft\Windows\Start Menu\Programs
 ```
 for eg. shortcut of spyder
-<img src=shortcut.PNG width=80%>
+<img src=./images/shortcut.PNG width=80%>
 
 
 
@@ -26,12 +26,37 @@ Alternative: [POWERLEVEL9K](https://github.com/Powerlevel9k/powerlevel9k)
 
 # WSL
 
+### Install the Windows Subsystem for Linux
+
+Open PowerShell as Administrator and run:
+
+```powershell
+dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+```
+
+
+
+Install [Windows 10 May 2020 Update](https://www.microsoft.com/en-in/software-download/windows1 0)
+
+Open PowerShell as Administrator and run:
+
+```powershell
+dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+wsl --set-default-version 2
+```
+
+**Install your Linux distribution of choice from Microsoft Store**
+
+
+
+### Tuning Up Linux
+
 ```shell
 #Essential
 sudo apt install xfce4-session
 sudo apt install thunar-archive-plugin
 sudo apt install dbus-x11
-sudo apt-get install python-gi-cairo
+sudo apt-get install python3-gi-cairo
 
 #GTK warnings
 sudo apt-get install libatk-adaptor libgail-common
@@ -73,7 +98,7 @@ sudo apt install lxappearance
 
 ```shell
 #Fixing  libXp.so.6
-sudo apt-get install libxpm4
+sudo apt install -y libxpm4 imagemagick
 sudo ln -s /usr/lib/x86_64-linux-gnu/libXpm.so.4.11.0 \
 /usr/lib/x86_64-linux-gnu/libXp.so.6
 

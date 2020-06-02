@@ -45,28 +45,30 @@ dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /nores
 wsl --set-default-version 2
 ```
 
-**Install your Linux distribution of choice from Microsoft Store**
+**Install Ubuntu 20.04 from Microsoft Store**
 
 
 
-### Tuning Up Linux
+### Settings Up Linux
 
 ```shell
 #Essential
-sudo apt install xfce4-session
-sudo apt install thunar-archive-plugin
-sudo apt install dbus-x11
-sudo apt-get install python3-gi-cairo
+sudo apt install -y xfce4 xfce4-session thunar-archive-plugin dbus-x11 python3-gi-cairo libbz2-dev
 
 #GTK warnings
-sudo apt-get install libatk-adaptor libgail-common
-sudo apt-get install gtk2-engines-pixbuf
-sudo apt install gnome-themes-standard
+sudo apt install -y libatk-adaptor libgail-common gtk2-engines-pixbuf gnome-themes-standard
+
+# for theme settings
+sudo apt install -y lxappearance
+
+# remove 
+sudo apt purge -y xscreensaver gnome-screensaver light-locker i3lock
+sudo apt autoremove -y
 
 # oh-my-zsh
 #=======================================================================
 sudo apt install -y zsh
-echo "yes" | sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+echo "no" | sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 	# adding plugins
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
@@ -75,20 +77,66 @@ git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=~/.oh-my-zs
 
 	# adding plugins in zshrc
 sed -i 's/plugins.*/plugins=(sudo git zsh-autosuggestions zsh-completions zsh-syntax-highlighting)/' ~/.zshrc
+
+chsh -s $(which zsh)
 #=======================================================================
 
-# gdown
-echo "y" | sudo apt install python3-pip
-sudo ln -s $(which pip3) /usr/local/bin/pip
-echo "y" | sudo pip install gdown
+# Installing python 3.7.7
+sudo add-apt-repository ppa:deadsnakes/ppa
+sudo apt update
+sudo apt install -y python3.7
+wget https://bootstrap.pypa.io/get-pip.py
+sudo python3.7 ./get-pip.py
+sudo ln -s $(which python3.7) /usr/local/bin/python
 
 # python modules
-pip install numpy scipy astropy matplotlib pyreduce-astro jupyter pandas
-sudo pip install ptipython
+sudo apt install -y python3.7-tk
+sudo pip install numpy scipy astropy matplotlib pandas pyreduce-astro eleanor
+sudo pip install ptipython jupyter
 
-#for theme settings
-sudo apt install lxappearance
+# gdown
+sudo pip install gdown
+
+# enabling xserver connection
+echo -e "\n" >> ~/.bashrc
+echo -e "export DISPLAY=$(grep -m 1 nameserver /etc/resolv.conf | awk '{print $2}'):0.0" >> ~/.bashrc
+
+echo -e "\n" >> ~/.zshrc
+echo -e "export DISPLAY=$(grep -m 1 nameserver /etc/resolv.conf | awk '{print $2}'):0.0" >> ~/.zshrc
+
 ```
+
+
+
+## :warning: Optional
+
+
+
+ **Removing password for `sudo`**
+
+```shell
+echo -e "$(whoami) ALL=(ALL:ALL) NOPASSWD:ALL"
+```
+
+
+
+**Theming**
+
+```shell
+wget https://dllb2.pling.com/api/files/download/j/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjE1ODk4ODgwMTAiLCJ1IjpudWxsLCJsdCI6ImRvd25sb2FkIiwicyI6ImIyZWMyNGI4NDJkMTQ1OWI1YWM5ZTViZDU0ZjVmNGQyOWVmNzFjNWRmYzdlNjE0YjljYjI1NmJhYTk2YzYyOTBhZTJlMzY4MTliMGYzNDc1YTQwN2Q3MDJjNTlhZTYyYjdmYmEyM2E4ZjZmMGVlOTg4ZjNkNmZhZGJiOGJiODM5IiwidCI6MTU5MTA5NjQ5NSwic3RmcCI6ImVkZDU0ZjZkZDIyYjcwYjAzZWQ3MTg0OGJkYzAzMDBmIiwic3RpcCI6IjE1MC4xMjkuMTY0LjIxNiJ9.V6Xe0xPZuaGZ3OqvqFFhc5voeGK9JBQ5JwG-iO-cpCw/Mojave-dark-solid.tar.xz
+
+wget https://dllb2.pling.com/api/files/download/j/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjE1OTAwNDcxMDciLCJ1IjpudWxsLCJsdCI6ImRvd25sb2FkIiwicyI6IjZhMDNjNGZmYjQzMjcwMTRkY2Q5Y2YyNzZiYmQxODA1MDdhYTc1NjVlZDA0NDhjYmQwYjJjZjdhZTMxNmY3MGQ0NzAwYTkxZTJhZjlmNjBlNjFlOTgzZjc0NjUyYjkzYWQ1ZWU3N2UxNDI3NmU3ZDkyMjc0NmEwNDY5OTU4ZjRlIiwidCI6MTU5MTA5NjY2OCwic3RmcCI6ImVkZDU0ZjZkZDIyYjcwYjAzZWQ3MTg0OGJkYzAzMDBmIiwic3RpcCI6IjE1MC4xMjkuMTY0LjIxNiJ9.aO-tZ8JGVnYtOQrg-G-1vo_I8Pf-APyUGS4hbEpmEE0/03-McMojave-circle-blue.tar.xz
+
+mkdir ~/.icons
+mkdir ~/.themes
+
+tar -xvf ./03-McMojave-circle-blue.tar.xz --directory ~/.icons
+tar -xvf ./Mojave-dark-solid.tar.xz --directory ~/.themes
+
+rm -rf ./03-McMojave-circle-blue.tar.xz ./Mojave-dark-solid.tar.xz
+```
+
+After that set theme using `lxappearance`
 
 
 

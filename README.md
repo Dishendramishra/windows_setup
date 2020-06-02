@@ -4,7 +4,7 @@
    1. [Installing Windows Subsystem for Linux](#1.-Installing-Windows-Subsystem-for-Linux)
    2. [Installing X11](#2.-Installing-X11)
    3. [Setting Up Linux](#3.-Setting-Up-Linux)
-   4. [Optional :warning:](#4.-Optional-:warning:)
+   4. [Optional](#4.-Optional-:warning:)
 2. [Installing Software on WSL](#Installing-Software-on-WSL)
 3. [Miscellaneous](#Miscellaneous)
 
@@ -37,7 +37,7 @@
 
 4. **Install Ubuntu 20.04 from Microsoft Store**
 
-   <img src=./images/ms_store.PNG width=80%>
+   <img src=/images/ms_store.png width=80%>
 
   
 

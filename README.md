@@ -59,7 +59,14 @@
 
    Add a **New Rule** in **Inbound Rules** => [Instrutions](./firewall_setup.pdf)
    
-   
+5. Adding `DISPLAY` variable to you shell profile file.  
+   Add the line beloew at the end of your shell profile (`~/.bashrc` for bash-shell or `~/.zshrc` for zsh-shell), so that WSL can connect to X windows system.  
+   ```shell
+   export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0
+   ```
+
+**Or**  
+You can use x410, for instructions: [x410 Setup](https://x410.dev/cookbook/wsl/using-x410-with-wsl2/)
 
 ### 3. Setting Up Linux
 

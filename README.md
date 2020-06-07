@@ -186,7 +186,7 @@ echo -e "export DISPLAY=$(grep -m 1 nameserver /etc/resolv.conf | awk '{print $2
   
   cd
   gdown --id 132FL4KwI7VWdzrw2bVc4vxqeRXuQZaJN
-  wget http://lifeng.lamost.org/courses/IDL/software/license.dat
+  gdown --id 1HvQAtnpxGbcAe6yqUHc3hFAFgwM0RI9i
   sudo mkdir /usr/local/itt      
   sudo tar -xvf ./idl71linux.x86.tar.gz --directory /usr/local/itt/
   cd /usr/local/itt
@@ -195,18 +195,14 @@ echo -e "export DISPLAY=$(grep -m 1 nameserver /etc/resolv.conf | awk '{print $2
   sudo mv ./license.dat /usr/local/itt/license/
   ```
 
-  
-
   **Libraries**
 
   ```shell
-  git clone https://github.com/idl-coyote/coyote
-  sudo mv ./coyote /usr/local/itt/idl/lib/
+  sudo git clone https://github.com/Dishendramishra/coyote /usr/local/itt/idl/lib/coyote
+  sudo git clone https://github.com/Dishendramishra/IDLAstro /usr/local/itt/idl/lib/astron
+  sudo wget https://raw.githubusercontent.com/Dishendramishra/idl_tutorial/master/libraries/clear.pro -P /usr/local/itt/idl/lib/
+  sudo wget https://raw.githubusercontent.com/Dishendramishra/idl_tutorial/master/libraries/cls.pro -P /usr/local/itt/idl/lib/
   ```
-
-  
-
-
 
 - ### Eleanor and Pyreduce
 

@@ -37,7 +37,7 @@
    <img src=/images/ms_store.png width=80%>
    
 6. **(Optional) Installing Theme**
-  
+
   Open PowerShell as Administrator and run:
 ```shell
 Set-ExecutionPolicy RemoteSigned -scope CurrentUser
@@ -211,6 +211,27 @@ echo -e "export DISPLAY=$(grep -m 1 nameserver /etc/resolv.conf | awk '{print $2
   sudo wget https://raw.githubusercontent.com/Dishendramishra/idl_tutorial/master/libraries/cls.pro -P /usr/local/itt/idl/lib/
   ```
 
+- ### IRAF
+
+  ```shell
+  sudo apt install iraf
+  ```
+  
+  Then download file below and `cd` to downloaded location:
+  
+  https://media.githubusercontent.com/media/Dishendramishra/windows_setup/master/files/iraf-cygwin-files.tar
+  
+  ```shell
+  mkdir iraf_libs
+  tar -xvf iraf-cygwin-files.tar --directory ./iraf_libs/
+  cd ./iraf_libs/
+  sudo mkdir /usr/lib/iraf/extern/tables /usr/lib/iraf/extern/stsdas
+  sudo tar -xvf ./stsdas39-src.tar.gz --directory /usr/lib/iraf/extern/stsdas
+  sudo tar -xvf ./tables39-src.tar.gz --directory /usr/lib/iraf/extern/tables
+  ```
+  
+  
+  
 - ### Eleanor and Pyreduce
 
   ```shell

@@ -14,23 +14,21 @@
 
 ### 1. Installing Windows Subsystem for Linux
 
-1. Download & install Linux kernel update package: https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi
+1. If your **Windows 10 version is less than 2004** then Install  [Windows 10 May 2020 Update](https://www.microsoft.com/en-in/software-download/windows10)
 
-2. If your **Windows 10 version is less than 2004** then Install  [Windows 10 May 2020 Update](https://www.microsoft.com/en-in/software-download/windows10)
-
-3. Open PowerShell as Administrator and run:
+2. Open PowerShell as Administrator and run:
 
    ```powershell
    dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
    dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
    ```
+3. Download & install Linux kernel update package: https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi 
+
 4. **Restart your PC** then Open PowerShell as Administrator and run:
 
    ```shell
    wsl --set-default-version 2
    ```
-
-   
 
 5. **Install Ubuntu 20.04 from Microsoft Store**
 

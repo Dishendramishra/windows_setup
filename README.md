@@ -22,9 +22,12 @@
    dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
    dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
    ```
-3. Download & install Linux kernel update package: https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi 
+   then **Restart your PC**
+   
+3. Download & install Linux kernel update package: https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi  
+   then **Restart your PC**
 
-4. **Restart your PC** then Open PowerShell as Administrator and run:
+4. Open PowerShell as Administrator and run:
 
    ```shell
    wsl --set-default-version 2

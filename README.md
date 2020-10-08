@@ -256,3 +256,8 @@ echo -e "export DISPLAY=$(grep -m 1 nameserver /etc/resolv.conf | awk '{print $2
   for eg. shortcut of spyder
   <img src=./images/shortcut.PNG width=80%>
 
+- #### **Disable Quick Access from Explorer**
+  ```
+  HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer
+  ```
+  Right-click on an empty space in the right pane, then choose **New → DWORD (32-bit) Value** named **HubMode** value **1**. 

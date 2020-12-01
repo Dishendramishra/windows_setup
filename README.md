@@ -231,6 +231,10 @@ echo -e "export DISPLAY=$(grep -m 1 nameserver /etc/resolv.conf | awk '{print $2
   sudo tar -xvf ./tables39-src.tar.gz --directory /usr/lib/iraf/extern/tables
   ```
   
+  **Running IRAF**
+  ```shell
+  irafcl
+  ```
   
   
 - ### Eleanor and Pyreduce

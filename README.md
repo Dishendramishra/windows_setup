@@ -6,7 +6,8 @@
    3. [Setting Up Linux](#3-setting-up-linux)
    4. [Optional](#4-optional-warning)
 2. [Installing Software on WSL](#installing-software-on-wsl)
-3. [Miscellaneous](#Miscellaneous)
+3. [Git Bash Theme](#git-bash-theme) 
+4. [Miscellaneous](#Miscellaneous)
 
 
 
@@ -245,6 +246,8 @@ echo -e "export DISPLAY=$(grep -m 1 nameserver /etc/resolv.conf | awk '{print $2
 
 ---
 
+# Git Bash Theme
+put the monokai file in `C:\Program Files\Git\usr\share\mintty\themes`
 
 
 # Miscellaneous
